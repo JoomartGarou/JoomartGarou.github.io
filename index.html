@@ -385,7 +385,7 @@ footer .row a:hover{color:var(--acc)}
   <!-- ОБО МНЕ -->
   <section id="about">
     <div class="label"><b>01</b><span data-i="about.label">Обо мне</span></div>
-    <p class="big split-words" data-i="about.big">Меня зовут Жоомарт. Я пока не основал стартап на миллион и не работаю в Google — и <span class="hl">честно</span> говорю об этом. Зато я выучил Python, основы C++ и веба, собрал <span class="hl">платформу подготовки к ОРТ</span> и мультиплеерную игру, а каждый день создаю новое вместе с <span class="hl">искусственным интеллектом</span>. Это не конец истории. Это её <span class="hl">первая глава</span>.</p>
+    <p class="big split-words" data-i="about.big">Меня зовут Жоомарт. Я выучил Python, основы C++ и веба, собрал <span class="hl">платформу подготовки к ОРТ</span> и мультиплеерную игру, а каждый день создаю новое вместе с <span class="hl">искусственным интеллектом</span>. Это не конец истории. Это её <span class="hl">первая глава</span>.</p>
 
     <div class="stats">
       <div class="stat spot"><span class="k">/01</span><div class="num"><span data-count="4">0</span><sup>+</sup></div><p data-i="st1">Проекта: от сайта до мультиплеерной игры</p></div>
@@ -557,7 +557,7 @@ window.PORTRAIT = 'data:image/webp;base64,UklGRkLwAQBXRUJQVlA4WAoAAAAQAAAAgwMAgw
       r1: 'Python-иштеп чыгуучу', r2: 'веб-иштеп чыгуучу', r3: 'оюн жаратуучу', r4: 'ЖИ-агенттердин дирижёру',
       mq1: mq(['Python', 'C++', 'JavaScript', 'Node.js', 'Claude AI', 'HTML · CSS', 'ЖИ-агенттер']),
       'about.label': 'Мен жөнүндө',
-      'about.big': 'Менин атым Жоомарт. Мен азырынча миллиондук стартап ачкан жокмун жана Google’да иштебейм — муну <span class="hl">ачык</span> айтам. Бирок мен Python, C++ жана веб негиздерин үйрөндүм, <span class="hl">ЖРТга даярдануу платформасын</span> жана көп оюнчулуу оюн жасадым, ал эми күн сайын <span class="hl">жасалма интеллект</span> менен бирге жаңы нерселерди жаратам. Бул окуянын аягы эмес. Бул анын <span class="hl">биринчи бөлүмү</span>.',
+      'about.big': 'Менин атым Жоомарт. Мен Python, C++ жана веб негиздерин үйрөндүм, <span class="hl">ЖРТга даярдануу платформасын</span> жана көп оюнчулуу оюн жасадым, ал эми күн сайын <span class="hl">жасалма интеллект</span> менен бирге жаңы нерселерди жаратам. Бул окуянын аягы эмес. Бул анын <span class="hl">биринчи бөлүмү</span>.',
       st1: 'Долбоор: сайттан көп оюнчулуу оюнга чейин', st2: 'ЖИ-агент менин иштеп чыгуу командамда',
       st3: 'Окуу режими — кызыгуу эч качан өчпөйт', st4: 'Өсүүгө жана көбүрөөк кыла аларымды далилдөөгө мотивация',
       'sk.label': 'Стек', 'sk.h1': 'Азыр эмне', 'sk.h2': '<em>кыла алам</em>',
@@ -603,7 +603,7 @@ window.PORTRAIT = 'data:image/webp;base64,UklGRkLwAQBXRUJQVlA4WAoAAAAQAAAAgwMAgw
       r1: 'a Python developer', r2: 'a web developer', r3: 'a game maker', r4: 'an AI-agent conductor',
       mq1: mq(['Python', 'C++', 'JavaScript', 'Node.js', 'Claude AI', 'HTML · CSS', 'AI agents']),
       'about.label': 'About me',
-      'about.big': 'My name is Joomart. I haven’t founded a million-dollar startup and I don’t work at Google — and I’m <span class="hl">honest</span> about it. But I’ve learned Python, C++ basics and the web, built an <span class="hl">exam-prep platform</span> and a multiplayer game, and every day I create something new together with <span class="hl">artificial intelligence</span>. This isn’t the end of the story. It’s the <span class="hl">first chapter</span>.',
+      'about.big': 'My name is Joomart. I’ve learned Python, C++ basics and the web, built an <span class="hl">exam-prep platform</span> and a multiplayer game, and every day I create something new together with <span class="hl">artificial intelligence</span>. This isn’t the end of the story. It’s the <span class="hl">first chapter</span>.',
       st1: 'Projects: from a website to a multiplayer game', st2: 'AI agents on my development team',
       st3: 'Learning mode — curiosity never switches off', st4: 'Motivation to grow and prove I can do more',
       'sk.label': 'Stack', 'sk.h1': 'What I can', 'sk.h2': '<em>do</em> right now',
@@ -728,14 +728,14 @@ window.PORTRAIT = 'data:image/webp;base64,UklGRkLwAQBXRUJQVlA4WAoAAAAQAAAAgwMAgw
   });
 
   // ---------- портрет: WebGL-шейдер ----------
-  const portrait = { prog: reduce ? 1 : 0 };
+  const portrait = { prog: 0 };
   (() => {
     const wrap = $('.portrait'), cv = $('#pcv'), img = $('#pimg');
     const fallback = () => wrap.classList.add('fallback');
     img.onload = () => {
       wrap.style.setProperty('--ar', img.naturalWidth / img.naturalHeight);
       const gl = cv.getContext('webgl', { alpha: true, premultipliedAlpha: true, antialias: false });
-      if (!gl || reduce) return fallback();
+      if (!gl) return fallback();
       const VS = 'attribute vec2 p;varying vec2 v;void main(){v=p*.5+.5;gl_Position=vec4(p,0.,1.);}';
       const FS = `precision highp float;
 varying vec2 v;
@@ -824,9 +824,9 @@ void main(){
   })();
 
   // ---------- частицы: портрет собирается из точек в 3D ----------
-  const PT = { prog: 0, fade: 1, scatter: 0, on: false };
+  const PT = { prog: 0, fade: 1, scatter: 0, touch: 0, on: false };
   (() => {
-    if (!window.THREE || reduce) return;
+    if (!window.THREE) return;
     const cv = $('#pts'), wrap = $('.portrait'), img = $('#pimg'), pcv = $('#pcv');
     let renderer;
     try { renderer = new THREE.WebGLRenderer({ canvas: cv, alpha: true, antialias: false }); } catch (e) { return; }
@@ -901,6 +901,16 @@ void main(){
     size(); addEventListener('resize', size);
     const ms = { x: 0, y: 0, tx: 0, ty: 0, cx: -1e4, cy: -1e4 };
     addEventListener('pointermove', e => { ms.tx = e.clientX / innerWidth - .5; ms.ty = e.clientY / innerHeight - .5; ms.cx = e.clientX; ms.cy = e.clientY; });
+    // телефон: касание рассыпает портрет на частицы вокруг пальца
+    const hero = $('#hero');
+    const touch = e => {
+      const t = e.touches[0]; if (!t || !window.gsap) return;
+      ms.cx = t.clientX; ms.cy = t.clientY; ms.tx = t.clientX / innerWidth - .5; ms.ty = t.clientY / innerHeight - .5;
+      gsap.to(PT, { touch: 1, duration: .25, overwrite: true });
+    };
+    hero.addEventListener('touchstart', touch, { passive: true });
+    hero.addEventListener('touchmove', touch, { passive: true });
+    hero.addEventListener('touchend', () => window.gsap && gsap.to(PT, { touch: 0, duration: 1.4, delay: .5, ease: 'power2.inOut', overwrite: true }), { passive: true });
     let visible = true;
     new IntersectionObserver(([en]) => visible = en.isIntersecting).observe(cv);
     const go = () => {
@@ -908,7 +918,7 @@ void main(){
       const t0 = performance.now();
       const loop = now => {
         requestAnimationFrame(loop);
-        const sc = PT.scatter, show = Math.min(1, sc / .2);
+        const sc = PT.scatter, show = Math.max(Math.min(1, sc / .2), PT.touch);
         pcv.style.opacity = 1 - show;
         const alpha = Math.max(PT.fade, show);
         if (!visible || alpha <= 0.001) { if (cv.style.opacity !== '0') { cv.style.opacity = '0'; } return; }
@@ -933,7 +943,7 @@ void main(){
   // ---------- 3D: облако частиц в контактах (сфера → узел) ----------
   const orb = { mix: 0 };
   (() => {
-    if (!window.THREE || reduce) return;
+    if (!window.THREE) return;
     const cv = $('#orb');
     let r; try { r = new THREE.WebGLRenderer({ canvas: cv, alpha: true, antialias: false }); } catch (e) { return; }
     const scene = new THREE.Scene(), cam = new THREE.PerspectiveCamera(45, 1, .1, 100), group = new THREE.Group();
@@ -1218,9 +1228,9 @@ void main(){
     gsap.to('.hero-name.back', { yPercent: 60, ease: 'none', scrollTrigger: ht });
     gsap.to('.portrait', { yPercent: 12, scale: .94, ease: 'none', scrollTrigger: ht });
     gsap.to('.hero-name.front', { yPercent: -50, opacity: 0, ease: 'none', scrollTrigger: ht });
-    // скролл: портрет рассыпается на частицы
-    ScrollTrigger.create({ trigger: '#hero', start: 'top top', end: 'bottom top', onUpdate: s => { PT.scatter = s.progress; } });
   }
+  // скролл: портрет рассыпается на частицы
+  ScrollTrigger.create({ trigger: '#hero', start: 'top top', end: 'bottom top', onUpdate: s => { PT.scatter = s.progress; } });
   // 3D-облако в контактах: сфера → узел по мере скролла
   gsap.to(orb, { mix: 1, ease: 'none', scrollTrigger: { trigger: '#contact', start: 'top bottom', end: 'center center', scrub: 1 } });
 
