@@ -731,13 +731,17 @@ window.PORTRAIT = 'data:image/webp;base64,UklGRkLwAQBXRUJQVlA4WAoAAAAQAAAAgwMAgw
   const portrait = { prog: 0 };
   (() => {
     const wrap = $('.portrait'), cv = $('#pcv'), img = $('#pimg');
-    const fallback = () => wrap.classList.add('fallback');
+    const fallback = why => { wrap.classList.add('fallback'); window.__fbWhy = why || '?'; };
     img.onload = () => {
       wrap.style.setProperty('--ar', img.naturalWidth / img.naturalHeight);
       const gl = cv.getContext('webgl', { alpha: true, premultipliedAlpha: true, antialias: false });
-      if (!gl) return fallback();
+      if (!gl) return fallback('no webgl');
       const VS = 'attribute vec2 p;varying vec2 v;void main(){v=p*.5+.5;gl_Position=vec4(p,0.,1.);}';
-      const FS = `precision highp float;
+      const FS = `#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float;
+#else
+precision mediump float;
+#endif
 varying vec2 v;
 uniform sampler2D T;uniform vec2 M,R,X;uniform float t,P,H;
 float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
@@ -777,10 +781,10 @@ void main(){
         gl.linkProgram(pr);
         if (!gl.getProgramParameter(pr, gl.LINK_STATUS)) throw gl.getProgramInfoLog(pr);
         gl.useProgram(pr);
-      } catch (err) { console.warn(err); return fallback(); }
-      if (Math.max(img.naturalWidth, img.naturalHeight) > gl.getParameter(gl.MAX_TEXTURE_SIZE)) return fallback();
+      } catch (err) { console.warn(err); return fallback('shader: ' + String(err).slice(0, 120)); }
+      if (Math.max(img.naturalWidth, img.naturalHeight) > gl.getParameter(gl.MAX_TEXTURE_SIZE)) return fallback('texture size');
       let dead = false;
-      cv.addEventListener('webglcontextlost', e => { e.preventDefault(); dead = true; fallback(); }, { once: true });
+      cv.addEventListener('webglcontextlost', e => { e.preventDefault(); dead = true; fallback('context lost'); }, { once: true });
       const buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
       gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
       const loc = gl.getAttribLocation(pr, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
@@ -910,7 +914,9 @@ void main(){
     };
     hero.addEventListener('touchstart', touch, { passive: true });
     hero.addEventListener('touchmove', touch, { passive: true });
-    hero.addEventListener('touchend', () => window.gsap && gsap.to(PT, { touch: 0, duration: 1.4, delay: .5, ease: 'power2.inOut', overwrite: true }), { passive: true });
+    const release = () => window.gsap && gsap.to(PT, { touch: 0, duration: 1.4, delay: .5, ease: 'power2.inOut', overwrite: true });
+    addEventListener('touchend', release, { passive: true });
+    addEventListener('touchcancel', release, { passive: true });
     let visible = true;
     new IntersectionObserver(([en]) => visible = en.isIntersecting).observe(cv);
     const go = () => {
@@ -919,7 +925,7 @@ void main(){
       const loop = now => {
         requestAnimationFrame(loop);
         const sc = PT.scatter, show = Math.max(Math.min(1, sc / .2), PT.touch);
-        pcv.style.opacity = 1 - show;
+        wrap.style.opacity = (1 - show) * (wrap.classList.contains('fallback') ? Math.min(1, portrait.prog) : 1);
         const alpha = Math.max(PT.fade, show);
         if (!visible || alpha <= 0.001) { if (cv.style.opacity !== '0') { cv.style.opacity = '0'; } return; }
         cv.style.opacity = '1';
@@ -1076,6 +1082,21 @@ void main(){
   const wipe = $('.lang-wipe');
   let switchLang = l => { try { localStorage.setItem('lang', l); } catch (e) {} location.reload(); };
   $$('.langs button').forEach(b => b.addEventListener('click', () => { if (b.dataset.lang !== lang) switchLang(b.dataset.lang); }));
+
+  // ---------- диагностика: ?debug ----------
+  if (/[?&]debug/.test(location.search)) {
+    const d = document.createElement('pre');
+    d.style.cssText = 'position:fixed;left:8px;right:8px;bottom:8px;z-index:400;background:rgba(0,0,0,.88);color:#b6ff3b;font:11px/1.45 monospace;padding:10px;border-radius:10px;pointer-events:none;white-space:pre-wrap;word-break:break-all';
+    document.body.appendChild(d);
+    const f2 = n => (+n).toFixed(2);
+    setInterval(() => {
+      d.textContent = 'shader: ' + ($('.portrait').classList.contains('fallback') ? 'FALLBACK (' + window.__fbWhy + ')' : 'ok') +
+        '\nthree: ' + !!window.THREE + '  particles: ' + PT.on + '  gsap: ' + !!window.gsap +
+        '\nprog ' + f2(PT.prog) + '  fade ' + f2(PT.fade) + '  touch ' + f2(PT.touch) + '  scatter ' + f2(PT.scatter) + '  photo ' + f2(portrait.prog) +
+        '\nreduce ' + reduce + '  fine ' + fine + '  dpr ' + devicePixelRatio + '  ' + innerWidth + 'x' + innerHeight +
+        '\n' + navigator.userAgent;
+    }, 300);
+  }
 
   if (!window.gsap || !window.ScrollTrigger) {
     $('#loader').remove(); document.body.classList.remove('loading'); portrait.prog = 1; PT.prog = 1; PT.fade = 0; orb.mix = .5; term.play();
