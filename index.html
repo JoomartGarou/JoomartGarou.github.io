@@ -15,7 +15,7 @@
   window.__lang = l;
 })();
 </script>
-<meta name="description" content="Портфолио Жоомарта Акпаралиева — начинающий разработчик: Python, веб, Node.js и работа с ИИ-агентами.">
+<meta name="description" content="Портфолио Жоомарта Акпаралиева — начинающий разработчик: Python, C++, веб, Node.js и работа с ИИ-агентами.">
 <meta name="theme-color" content="#0a0b0a">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0b0a'/%3E%3Ctext x='32' y='43' font-family='Arial Black,Arial' font-weight='900' font-size='28' text-anchor='middle' fill='%23b6ff3b'%3E%D0%96%D0%90%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -115,7 +115,6 @@ section{position:relative;padding:150px var(--pad)}
 .status{display:flex;align-items:center;gap:10px;color:var(--fg)}
 .status i{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 0 rgba(182,255,59,.6);animation:ping 2s infinite}
 @keyframes ping{70%{box-shadow:0 0 0 12px rgba(182,255,59,0)}100%{box-shadow:0 0 0 0 rgba(182,255,59,0)}}
-.clock b{color:var(--fg);font-weight:400;font-variant-numeric:tabular-nums}
 .hero-name{position:absolute;left:var(--pad);right:var(--pad);font-family:var(--display);font-weight:900;line-height:.82;letter-spacing:-.06em;white-space:nowrap;text-align:center;pointer-events:none}
 .hero-name.back{top:17vh;top:17svh;z-index:1;color:var(--fg)}
 .hero-name.front{bottom:23vh;bottom:23svh;z-index:3;font-weight:700;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.2px rgba(233,237,233,.75)}
@@ -142,7 +141,7 @@ section{position:relative;padding:150px var(--pad)}
 .scroll-hint i::after{content:'';position:absolute;left:0;top:-50%;width:1px;height:50%;background:var(--acc);animation:drop 1.8s cubic-bezier(.7,0,.2,1) infinite}
 @keyframes drop{to{top:100%}}
 @media (max-width:820px){
-  .hero-top{top:78px;font-size:11px}.hero-top .clock{display:none}
+  .hero-top{top:78px;font-size:11px}
   .hero-name.back{top:19svh}.hero-name.front{bottom:36svh}
   .portrait{height:min(56svh,calc(100vw / var(--ar,1)));bottom:24svh}
   .blob{width:110vw;height:110vw;margin:-55vw 0 0 -55vw;top:45%}
@@ -188,14 +187,15 @@ section{position:relative;padding:150px var(--pad)}
 .cell .mt{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:10px;text-transform:uppercase;letter-spacing:.1em}
 .cell.wide{grid-column:span 2}
 .cell.tall{grid-row:span 2}
+.cell.wide3{grid-column:span 3}
 .cell.ai{background:linear-gradient(160deg,#141a10,var(--bg2) 55%)}
 .cell.ai .agents{display:flex;flex-direction:column;gap:8px;margin-top:22px;font-family:var(--mono);font-size:13px}
 .cell.ai .agents span{display:flex;justify-content:space-between;align-items:center;padding:11px 14px;border:1px solid var(--line2);border-radius:10px;background:rgba(10,11,10,.6)}
 .cell.ai .agents span::after{content:'● online';color:var(--acc);font-size:11px}
 .cell.big-n{justify-content:flex-end}
 .cell.big-n .n{font-family:var(--display);font-weight:900;font-size:clamp(4rem,8vw,7.5rem);line-height:.85;letter-spacing:-.07em;color:var(--acc)}
-@media (max-width:1000px){.bento{grid-template-columns:1fr 1fr}.cell.tall{grid-row:span 1}}
-@media (max-width:620px){.bento{grid-template-columns:1fr}.cell.wide{grid-column:span 1}}
+@media (max-width:1000px){.bento{grid-template-columns:1fr 1fr}.cell.tall{grid-row:span 1}.cell.wide3{grid-column:span 2}}
+@media (max-width:620px){.bento{grid-template-columns:1fr}.cell.wide,.cell.wide3{grid-column:span 1}}
 
 /* ---------- терминал ---------- */
 #terminal{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:center}
@@ -331,7 +331,7 @@ footer .row a:hover{color:var(--acc)}
 
 <!-- прелоадер -->
 <div id="loader">
-  <div class="row"><span data-i="ld.top">Жоомарт Акпаралиев / Портфолио</span><span data-i="ld.city">Бишкек, KG</span></div>
+  <div class="row"><span data-i="ld.top">Жоомарт Акпаралиев / Портфолио</span><span>Python · C++ · JS</span></div>
   <div>
     <div class="mid">
       <div class="count">000</div>
@@ -339,7 +339,7 @@ footer .row a:hover{color:var(--acc)}
     </div>
     <div class="bar"><i></i></div>
   </div>
-  <div class="row"><span>Python · JS · Claude AI</span><span>© 2026</span></div>
+  <div class="row"><span>Claude AI · Node.js</span><span>© 2026</span></div>
 </div>
 
 <nav>
@@ -363,7 +363,7 @@ footer .row a:hover{color:var(--acc)}
   <section id="hero">
     <div class="hero-top">
       <span class="status"><i></i><span data-i="hero.status">Открыт к возможностям</span></span>
-      <span class="clock"><span data-i="hero.time">Бишкек</span> — <b id="clock">00:00:00</b> GMT+6</span>
+      <span data-i="hero.year">Портфолио — 2026</span>
     </div>
     <div class="blob"></div>
     <h1 class="hero-name back fit"><span class="line"><span class="split-chars" data-i="hero.name">ЖООМАРТ</span></span></h1>
@@ -371,7 +371,7 @@ footer .row a:hover{color:var(--acc)}
     <canvas id="pts"></canvas>
     <div class="hero-name front fit" aria-hidden="true"><span class="line"><span class="split-chars" data-i="hero.surname">АКПАРАЛИЕВ</span></span></div>
     <div class="hero-bottom">
-      <p data-i="hero.p">Таалайбекович. Начинающий разработчик, который <b>не боится начинать с нуля</b>. Python, веб и проекты вместе с командой ИИ-агентов.</p>
+      <p data-i="hero.p">Таалайбекович. Начинающий разработчик, который <b>не боится начинать с нуля</b>. Python, C++, веб и проекты вместе с командой ИИ-агентов.</p>
       <div class="role"><span data-i="hero.role">Сейчас я —</span>
         <span class="rot"><span data-i="r1">Python-разработчик</span><span data-i="r2">веб-разработчик</span><span data-i="r3">создатель игр</span><span data-i="r4">дирижёр ИИ-агентов</span></span>
       </div>
@@ -379,13 +379,13 @@ footer .row a:hover{color:var(--acc)}
   </section>
 
   <div class="marquee"><div class="marquee-track" data-speed="38" data-i="mq1">
-    <span>Python</span><span>JavaScript</span><span>Node.js</span><span>Claude AI</span><span>HTML · CSS</span><span>ИИ-агенты</span>
+    <span>Python</span><span>C++</span><span>JavaScript</span><span>Node.js</span><span>Claude AI</span><span>HTML · CSS</span><span>ИИ-агенты</span>
   </div></div>
 
   <!-- ОБО МНЕ -->
   <section id="about">
     <div class="label"><b>01</b><span data-i="about.label">Обо мне</span></div>
-    <p class="big split-words" data-i="about.big">Меня зовут Жоомарт. Я пока не основал стартап на миллион и не работаю в Google — и <span class="hl">честно</span> говорю об этом. Зато я выучил Python и основы веба, собрал <span class="hl">платформу подготовки к ОРТ</span> и мультиплеерную игру, а каждый день создаю новое вместе с <span class="hl">искусственным интеллектом</span>. Это не конец истории. Это её <span class="hl">первая глава</span>.</p>
+    <p class="big split-words" data-i="about.big">Меня зовут Жоомарт. Я пока не основал стартап на миллион и не работаю в Google — и <span class="hl">честно</span> говорю об этом. Зато я выучил Python, основы C++ и веба, собрал <span class="hl">платформу подготовки к ОРТ</span> и мультиплеерную игру, а каждый день создаю новое вместе с <span class="hl">искусственным интеллектом</span>. Это не конец истории. Это её <span class="hl">первая глава</span>.</p>
 
     <div class="stats">
       <div class="stat spot"><span class="k">/01</span><div class="num"><span data-count="4">0</span><sup>+</sup></div><p data-i="st1">Проекта: от сайта до мультиплеерной игры</p></div>
@@ -408,7 +408,8 @@ footer .row a:hover{color:var(--acc)}
       <div class="cell spot"><div><div class="ico">&lt;/&gt;</div><h4>HTML · CSS</h4><p data-i="sk.html">Семантика, Flexbox, Grid, адаптив и анимации.</p></div><div><div class="meter" data-lv="6"></div><div class="mt"><span data-i="lvl">Уровень</span><span data-i="lv.b2">База+</span></div></div></div>
       <div class="cell spot"><div><div class="ico">JS</div><h4>JavaScript</h4><p data-i="sk.js">DOM, события, Canvas — оживляю страницы.</p></div><div><div class="meter" data-lv="4"></div><div class="mt"><span data-i="lvl">Уровень</span><span data-i="lv.b">База</span></div></div></div>
       <div class="cell spot"><div><div class="ico">{n}</div><h4>Node.js</h4><p data-i="sk.node">Express и Socket.io: сервер для мультиплеерной игры в реальном времени.</p></div><div><div class="meter" data-lv="3"></div><div class="mt"><span data-i="lvl">Уровень</span><span data-i="lv.beg">Начальный</span></div></div></div>
-      <div class="cell spot wide"><div><div class="ico">↗</div><h4 data-i="sk.lt">Обучаемость</h4><p data-i="sk.l">Главный навык: быстро разбираюсь в новом и не сдаюсь, когда сложно. Next.js и TypeScript — следующие на очереди.</p></div><div><div class="meter" data-lv="10"></div><div class="mt"><span data-i="lvl">Уровень</span><span data-i="lv.max">Максимум</span></div></div></div>
+      <div class="cell spot"><div><div class="ico">C++</div><h4>C++</h4><p data-i="sk.cpp">Основы: типы, условия, циклы, функции и массивы. Понимаю, как программа работает ближе к железу.</p></div><div><div class="meter" data-lv="4"></div><div class="mt"><span data-i="lvl">Уровень</span><span data-i="lv.b">База</span></div></div></div>
+      <div class="cell spot wide3"><div><div class="ico">↗</div><h4 data-i="sk.lt">Обучаемость</h4><p data-i="sk.l">Главный навык: быстро разбираюсь в новом и не сдаюсь, когда сложно. Next.js и TypeScript — следующие на очереди.</p></div><div><div class="meter" data-lv="10"></div><div class="mt"><span data-i="lvl">Уровень</span><span data-i="lv.max">Максимум</span></div></div></div>
     </div>
   </section>
 
@@ -425,7 +426,7 @@ footer .row a:hover{color:var(--acc)}
       <p class="hint" data-i="tm.hint">↳ Терминал живой. Попробуй ввести <b>help</b></p>
     </div>
     <div class="term" data-cursor-text>
-      <div class="bar"><i></i><i></i><i></i><span>joomart@bishkek: ~/portfolio</span></div>
+      <div class="bar"><i></i><i></i><i></i><span>joomart@portfolio: ~</span></div>
       <div class="body" id="tbody" data-lenis-prevent><div id="tout"></div><div class="in" hidden><span class="p">❯</span><input id="tin" autocomplete="off" spellcheck="false" aria-label="terminal"></div></div>
     </div>
   </section>
@@ -439,7 +440,7 @@ footer .row a:hover{color:var(--acc)}
       </div>
       <div class="track">
         <div class="step"><div class="n">01</div><h5 data-i="j1h">Школа</h5><p data-i="j1">Любопытство и первые вопросы: «а как это вообще работает?»</p></div>
-        <div class="step"><div class="n">02</div><h5>Python</h5><p data-i="j2">Первый <code>print("Hello, World!")</code> — и понимание, что код — это суперсила.</p></div>
+        <div class="step"><div class="n">02</div><h5>Python · C++</h5><p data-i="j2">Первый <code>print("Hello, World!")</code> — и понимание, что код — это суперсила.</p></div>
         <div class="step"><div class="n">03</div><h5 data-i="j3h">Олимпиады</h5><p data-i="j3">Алгоритмические задачи на Python: думать, ошибаться, находить решение.</p></div>
         <div class="step"><div class="n">04</div><h5>HTML · CSS · JS</h5><p data-i="j4">Первые страницы, вёрстка и магия, когда сайт оживает в браузере.</p></div>
         <div class="step"><div class="n">05</div><h5 data-i="j5h">Claude и агенты</h5><p data-i="j5">Учусь строить проекты вместе с ИИ — быстрее, смелее, масштабнее.</p></div>
@@ -547,22 +548,23 @@ window.PORTRAIT = 'data:image/webp;base64,UklGRkLwAQBXRUJQVlA4WAoAAAAQAAAAgwMAgw
   const mq = a => a.map(t => `<span>${t}</span>`).join('');
   const I18N = {
     ky: {
-      'ld.top': 'Жоомарт Акпаралиев / Портфолио', 'ld.city': 'Бишкек, KG',
+      'ld.top': 'Жоомарт Акпаралиев / Портфолио',
       'ld.words': 'фонду өчүрүп жатам…<br>бөлүкчөлөрдү чогултуп жатам…<br>шейдерлерди түзүп жатам…<br><b>даяр</b>',
       'nav.about': 'Мен жөнүндө', 'nav.stack': 'Стек', 'nav.journey': 'Жолум', 'nav.work': 'Иштер', 'nav.contact': 'Байланыш',
-      'hero.status': 'Жаңы мүмкүнчүлүктөргө ачыкмын', 'hero.time': 'Бишкек',
-      'hero.p': 'Таалайбек уулу. <b>Нөлдөн баштоодон коркпогон</b> жаңы баштаган иштеп чыгуучу. Python, веб жана ЖИ-агенттер командасы менен долбоорлор.',
+      'hero.status': 'Жаңы мүмкүнчүлүктөргө ачыкмын', 'hero.year': 'Портфолио — 2026',
+      'hero.p': 'Таалайбек уулу. <b>Нөлдөн баштоодон коркпогон</b> жаңы баштаган иштеп чыгуучу. Python, C++, веб жана ЖИ-агенттер командасы менен долбоорлор.',
       'hero.scroll': 'Ылдый', 'hero.role': 'Азыр мен —',
       r1: 'Python-иштеп чыгуучу', r2: 'веб-иштеп чыгуучу', r3: 'оюн жаратуучу', r4: 'ЖИ-агенттердин дирижёру',
-      mq1: mq(['Python', 'JavaScript', 'Node.js', 'Claude AI', 'HTML · CSS', 'ЖИ-агенттер']),
+      mq1: mq(['Python', 'C++', 'JavaScript', 'Node.js', 'Claude AI', 'HTML · CSS', 'ЖИ-агенттер']),
       'about.label': 'Мен жөнүндө',
-      'about.big': 'Менин атым Жоомарт. Мен азырынча миллиондук стартап ачкан жокмун жана Google’да иштебейм — муну <span class="hl">ачык</span> айтам. Бирок мен Python менен веб негиздерин үйрөндүм, <span class="hl">ЖРТга даярдануу платформасын</span> жана көп оюнчулуу оюн жасадым, ал эми күн сайын <span class="hl">жасалма интеллект</span> менен бирге жаңы нерселерди жаратам. Бул окуянын аягы эмес. Бул анын <span class="hl">биринчи бөлүмү</span>.',
+      'about.big': 'Менин атым Жоомарт. Мен азырынча миллиондук стартап ачкан жокмун жана Google’да иштебейм — муну <span class="hl">ачык</span> айтам. Бирок мен Python, C++ жана веб негиздерин үйрөндүм, <span class="hl">ЖРТга даярдануу платформасын</span> жана көп оюнчулуу оюн жасадым, ал эми күн сайын <span class="hl">жасалма интеллект</span> менен бирге жаңы нерселерди жаратам. Бул окуянын аягы эмес. Бул анын <span class="hl">биринчи бөлүмү</span>.',
       st1: 'Долбоор: сайттан көп оюнчулуу оюнга чейин', st2: 'ЖИ-агент менин иштеп чыгуу командамда',
       st3: 'Окуу режими — кызыгуу эч качан өчпөйт', st4: 'Өсүүгө жана көбүрөөк кыла аларымды далилдөөгө мотивация',
       'sk.label': 'Стек', 'sk.h1': 'Азыр эмне', 'sk.h2': '<em>кыла алам</em>',
       'sk.py': 'Өзгөрмөлөр, циклдер, функциялар, тизмелер жана сөздүктөр. Скрипт жазам жана олимпиада маселелерин чечем.',
       'sk.ait': 'Claude AI + агенттер', 'sk.ai': 'ЖИге тапшырма коём, агенттер командасын башкарам жана идеяларды даяр кодго айлантам.',
       'sk.agents': 'агент ар бир долбоордо мени менен иштейт',
+      'sk.cpp': 'Негиздер: типтер, шарттар, циклдер, функциялар жана массивдер. Программа «темирге» жакын кантип иштээрин түшүнөм.',
       'sk.html': 'Семантика, Flexbox, Grid, адаптив жана анимациялар.',
       'sk.js': 'DOM, окуялар, Canvas — барактарды жандандырам.',
       'sk.node': 'Express жана Socket.io: реалдуу убакыттагы көп оюнчулуу оюн үчүн сервер.',
@@ -591,23 +593,24 @@ window.PORTRAIT = 'data:image/webp;base64,UklGRkLwAQBXRUJQVlA4WAoAAAAQAAAAgwMAgw
       'ft.word': 'ЖООМАРТ', 'ft.c': '© 2026 Жоомарт Акпаралиев', 'ft.m': 'Табандуулук жана Claude менен жасалды ✳', 'ft.top': 'Өйдө ↑'
     },
     en: {
-      'ld.top': 'Joomart Akparaliev / Portfolio', 'ld.city': 'Bishkek, KG',
+      'ld.top': 'Joomart Akparaliev / Portfolio',
       'ld.words': 'removing background…<br>assembling particles…<br>compiling shaders…<br><b>ready</b>',
       'nav.about': 'About', 'nav.stack': 'Stack', 'nav.journey': 'Journey', 'nav.work': 'Work', 'nav.contact': 'Contact',
-      'hero.status': 'Open to opportunities', 'hero.time': 'Bishkek',
+      'hero.status': 'Open to opportunities', 'hero.year': 'Portfolio — 2026',
       'hero.name': 'JOOMART', 'hero.surname': 'AKPARALIEV',
-      'hero.p': 'Taalaibekovich. An aspiring developer who <b>isn’t afraid to start from zero</b>. Python, web and projects built with a team of AI agents.',
+      'hero.p': 'Taalaibekovich. An aspiring developer who <b>isn’t afraid to start from zero</b>. Python, C++, web and projects built with a team of AI agents.',
       'hero.role': 'Right now I’m',
       r1: 'a Python developer', r2: 'a web developer', r3: 'a game maker', r4: 'an AI-agent conductor',
-      mq1: mq(['Python', 'JavaScript', 'Node.js', 'Claude AI', 'HTML · CSS', 'AI agents']),
+      mq1: mq(['Python', 'C++', 'JavaScript', 'Node.js', 'Claude AI', 'HTML · CSS', 'AI agents']),
       'about.label': 'About me',
-      'about.big': 'My name is Joomart. I haven’t founded a million-dollar startup and I don’t work at Google — and I’m <span class="hl">honest</span> about it. But I’ve learned Python and web basics, built an <span class="hl">exam-prep platform</span> and a multiplayer game, and every day I create something new together with <span class="hl">artificial intelligence</span>. This isn’t the end of the story. It’s the <span class="hl">first chapter</span>.',
+      'about.big': 'My name is Joomart. I haven’t founded a million-dollar startup and I don’t work at Google — and I’m <span class="hl">honest</span> about it. But I’ve learned Python, C++ basics and the web, built an <span class="hl">exam-prep platform</span> and a multiplayer game, and every day I create something new together with <span class="hl">artificial intelligence</span>. This isn’t the end of the story. It’s the <span class="hl">first chapter</span>.',
       st1: 'Projects: from a website to a multiplayer game', st2: 'AI agents on my development team',
       st3: 'Learning mode — curiosity never switches off', st4: 'Motivation to grow and prove I can do more',
       'sk.label': 'Stack', 'sk.h1': 'What I can', 'sk.h2': '<em>do</em> right now',
       'sk.py': 'Variables, loops, functions, lists and dicts. I write scripts and solve olympiad problems.',
       'sk.ait': 'Claude AI + agents', 'sk.ai': 'I brief AI, run a team of agents and turn ideas into working code.',
       'sk.agents': 'agents work with me on every project',
+      'sk.cpp': 'The basics: types, conditions, loops, functions and arrays. I understand how a program works closer to the metal.',
       'sk.html': 'Semantics, Flexbox, Grid, responsive layouts and animation.',
       'sk.js': 'DOM, events, Canvas — I bring pages to life.',
       'sk.node': 'Express and Socket.io: a server for a real-time multiplayer game.',
@@ -640,29 +643,29 @@ window.PORTRAIT = 'data:image/webp;base64,UklGRkLwAQBXRUJQVlA4WAoAAAAQAAAAgwMAgw
   // ---------- терминал: тексты ----------
   const TT = {
     ru: {
-      who: 'joomart — начинающий разработчик · Бишкек, KG', ask: 'сделай портфолио на нереальном уровне',
+      who: 'joomart — начинающий разработчик · Python, C++, веб, ИИ', ask: 'сделай портфолио на нереальном уровне',
       done1: 'портрет собран из частиц в 3D', done2: 'index.html собран — ты на нём 👀',
       tip: 'Введи <span class="c">help</span>, чтобы управлять терминалом.',
       help: [['whoami', 'кто я'], ['skills', 'мой стек'], ['projects', 'мои проекты'], ['agents', 'команда ИИ-агентов'], ['contact', 'как связаться'], ['lang ru|ky|en', 'сменить язык'], ['clear', 'очистить экран']],
-      skills: 'Python ▮▮▮▮▮▮▯▯▯▯\nHTML/CSS ▮▮▮▮▮▮▯▯▯▯\nJavaScript ▮▮▮▮▯▯▯▯▯▯\nNode.js ▮▮▮▯▯▯▯▯▯▯\nClaude AI ▮▮▮▮▮▮▮▯▯▯',
+      skills: 'Python ▮▮▮▮▮▮▯▯▯▯\nC++ ▮▮▮▮▯▯▯▯▯▯\nHTML/CSS ▮▮▮▮▮▮▯▯▯▯\nJavaScript ▮▮▮▮▯▯▯▯▯▯\nNode.js ▮▮▮▯▯▯▯▯▯▯\nClaude AI ▮▮▮▮▮▮▮▯▯▯',
       projects: '01 Платформа подготовки к ОРТ — Next.js\n02 Coop Battle Race — Node.js + Socket.io\n03 Олимпиадные задачи — Python\n04 Это портфолио — WebGL + GSAP',
       hire: 'Отличное решение. Пиши мне в Telegram:', nf: 'команда не найдена', nf2: 'введи help', langok: 'Меняю язык…'
     },
     ky: {
-      who: 'joomart — жаңы баштаган иштеп чыгуучу · Бишкек, KG', ask: 'мага укмуштуудай портфолио жасап бер',
+      who: 'joomart — жаңы баштаган иштеп чыгуучу · Python, C++, веб, ЖИ', ask: 'мага укмуштуудай портфолио жасап бер',
       done1: 'портрет 3D бөлүкчөлөрдөн чогултулду', done2: 'index.html даяр — сен аны карап турасың 👀',
       tip: 'Терминалды башкаруу үчүн <span class="c">help</span> деп жаз.',
       help: [['whoami', 'мен киммин'], ['skills', 'менин стегим'], ['projects', 'менин долбоорлорум'], ['agents', 'ЖИ-агенттер командасы'], ['contact', 'байланыш'], ['lang ru|ky|en', 'тилди алмаштыруу'], ['clear', 'экранды тазалоо']],
-      skills: 'Python ▮▮▮▮▮▮▯▯▯▯\nHTML/CSS ▮▮▮▮▮▮▯▯▯▯\nJavaScript ▮▮▮▮▯▯▯▯▯▯\nNode.js ▮▮▮▯▯▯▯▯▯▯\nClaude AI ▮▮▮▮▮▮▮▯▯▯',
+      skills: 'Python ▮▮▮▮▮▮▯▯▯▯\nC++ ▮▮▮▮▯▯▯▯▯▯\nHTML/CSS ▮▮▮▮▮▮▯▯▯▯\nJavaScript ▮▮▮▮▯▯▯▯▯▯\nNode.js ▮▮▮▯▯▯▯▯▯▯\nClaude AI ▮▮▮▮▮▮▮▯▯▯',
       projects: '01 ЖРТга даярдануу платформасы — Next.js\n02 Coop Battle Race — Node.js + Socket.io\n03 Олимпиада маселелери — Python\n04 Бул портфолио — WebGL + GSAP',
       hire: 'Сонун чечим. Telegram’га жаз:', nf: 'буйрук табылган жок', nf2: 'help деп жаз', langok: 'Тилди алмаштырып жатам…'
     },
     en: {
-      who: 'joomart — aspiring developer · Bishkek, KG', ask: 'build me an insanely good portfolio',
+      who: 'joomart — aspiring developer · Python, C++, web, AI', ask: 'build me an insanely good portfolio',
       done1: 'portrait assembled from 3D particles', done2: 'index.html built — you’re looking at it 👀',
       tip: 'Type <span class="c">help</span> to drive this terminal.',
       help: [['whoami', 'who I am'], ['skills', 'my stack'], ['projects', 'my projects'], ['agents', 'my AI-agent team'], ['contact', 'how to reach me'], ['lang ru|ky|en', 'switch language'], ['clear', 'clear the screen']],
-      skills: 'Python ▮▮▮▮▮▮▯▯▯▯\nHTML/CSS ▮▮▮▮▮▮▯▯▯▯\nJavaScript ▮▮▮▮▯▯▯▯▯▯\nNode.js ▮▮▮▯▯▯▯▯▯▯\nClaude AI ▮▮▮▮▮▮▮▯▯▯',
+      skills: 'Python ▮▮▮▮▮▮▯▯▯▯\nC++ ▮▮▮▮▯▯▯▯▯▯\nHTML/CSS ▮▮▮▮▮▮▯▯▯▯\nJavaScript ▮▮▮▮▯▯▯▯▯▯\nNode.js ▮▮▮▯▯▯▯▯▯▯\nClaude AI ▮▮▮▮▮▮▮▯▯▯',
       projects: '01 ORT exam-prep platform — Next.js\n02 Coop Battle Race — Node.js + Socket.io\n03 Olympiad problems — Python\n04 This portfolio — WebGL + GSAP',
       hire: 'Great decision. Message me on Telegram:', nf: 'command not found', nf2: 'type help', langok: 'Switching language…'
     }
@@ -713,10 +716,6 @@ window.PORTRAIT = 'data:image/webp;base64,UklGRkLwAQBXRUJQVlA4WAoAAAAQAAAAgwMAgw
   fit();
   document.fonts && document.fonts.ready.then(() => { fit(); window.ScrollTrigger && ScrollTrigger.refresh(); });
 
-  // ---------- часы Бишкека ----------
-  const clock = $('#clock');
-  const tick = () => { clock.textContent = new Date().toLocaleTimeString('ru-RU', { timeZone: 'Asia/Bishkek', hour12: false }); };
-  tick(); setInterval(tick, 1000);
 
   // ---------- email: копирование ----------
   const toast = $('.toast');
@@ -1043,7 +1042,7 @@ void main(){
         case 'agents': add(agentLines()); break;
         case 'contact': add(contact()); break;
         case 'clear': out.innerHTML = ''; break;
-        case 'date': add('  ' + new Date().toLocaleString(lang === 'en' ? 'en-GB' : 'ru-RU', { timeZone: 'Asia/Bishkek' }) + ' (Bishkek)'); break;
+        case 'date': add('  ' + new Date().toLocaleString(lang === 'en' ? 'en-GB' : 'ru-RU', )); break;
         case 'sudo': add(ok(S.hire) + ' <a href="https://t.me/GarouX0" target="_blank" rel="noopener">@GarouX0</a>'); break;
         case 'lang': {
           const l = args[0] === 'kg' ? 'ky' : args[0];
