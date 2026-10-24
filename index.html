@@ -251,6 +251,10 @@ body:not(.has-cursor) .cursor,body:not(.has-cursor) .cursor-ring{display:none}
 .card .desc{color:#b9c0ba;line-height:1.6;margin-top:18px;max-width:460px;font-size:clamp(.95rem,1.1vw,1.05rem)}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips span{font-family:var(--mono);font-size:12px;padding:7px 12px;border-radius:100px;background:var(--bg3);border:1px solid var(--line)}
+.chips .live{font-family:var(--mono);font-size:12px;padding:7px 12px;border-radius:100px;background:var(--acc);color:#0a0b0a;text-decoration:none;font-weight:600;transition:transform .3s}
+.chips .live:hover{transform:translateY(-2px)}
+.mock.plan{display:block;color:inherit;text-decoration:none}
+.mock.plan .opt b{width:34px}
 .card .vis{position:relative;background:#0c0e0c;border-left:1px solid var(--line);overflow:hidden;display:grid;place-items:center;padding:30px}
 .card .vis::before{content:'';position:absolute;inset:0;background-image:radial-gradient(var(--line2) 1px,transparent 1px);background-size:22px 22px;opacity:.6}
 .card .vis > *{position:relative}
@@ -388,7 +392,7 @@ footer .row a:hover{color:var(--acc)}
     <p class="big split-words" data-i="about.big">Меня зовут Жоомарт. Я выучил Python, основы C++ и веба, собрал <span class="hl">платформу подготовки к ОРТ</span> и мультиплеерную игру, а каждый день создаю новое вместе с <span class="hl">искусственным интеллектом</span>. Это не конец истории. Это её <span class="hl">первая глава</span>.</p>
 
     <div class="stats">
-      <div class="stat spot"><span class="k">/01</span><div class="num"><span data-count="4">0</span><sup>+</sup></div><p data-i="st1">Проекта: от сайта до мультиплеерной игры</p></div>
+      <div class="stat spot"><span class="k">/01</span><div class="num"><span data-count="5">0</span><sup>+</sup></div><p data-i="st1">Проектов: от сайта до мультиплеерной игры</p></div>
       <div class="stat spot"><span class="k">/02</span><div class="num"><span data-count="5">0</span><sup>✦</sup></div><p data-i="st2">ИИ-агентов в моей команде разработки</p></div>
       <div class="stat spot"><span class="k">/03</span><div class="num"><span data-count="24">0</span><sup>/7</sup></div><p data-i="st3">Режим обучения — любопытство не выключается</p></div>
       <div class="stat spot"><span class="k">/04</span><div class="num">∞<sup>%</sup></div><p data-i="st4">Мотивации расти и доказывать, что могу больше</p></div>
@@ -456,7 +460,19 @@ footer .row a:hover{color:var(--acc)}
     <div class="cards">
       <article class="card" style="--i:0">
         <div class="info">
-          <div class="top"><span>01 / 04</span><span class="badge wip" data-i="b.wip">В работе</span></div>
+          <div class="top"><span>01 / 05</span><span class="badge done" data-i="b.live">Запущен</span></div>
+          <div><h3>Устат</h3><p class="desc" data-i="w0">Сайт-помощник для учителей 1–11 классов на кыргызском и русском: планы уроков по программе КР с выгрузкой в Word, КТП на год, банк контрольных, виртуальные лаборатории с Python в браузере и игры для урока.</p></div>
+          <div class="chips"><span>HTML/CSS</span><span>JavaScript</span><span data-i="ch.py">Python в браузере</span><span>Caddy</span><a class="live" href="https://ustat.com.kg" target="_blank" rel="noopener" data-cursor="↗">ustat.com.kg ↗</a></div>
+        </div>
+        <div class="vis"><a class="mock plan" href="https://ustat.com.kg" target="_blank" rel="noopener" data-cursor="↗">
+          <div class="mh"><span data-i="mk0.n">Математика · 5 класс</span><b>45 мин</b></div><div class="pb"><i></i></div>
+          <div class="q" data-i="mk0.q">План урока: Дроби</div>
+          <div class="opt"><b>5'</b><span data-i="mk0.s1">Организационный момент</span></div><div class="opt ok"><b>15'</b><span data-i="mk0.s2">Новая тема</span></div><div class="opt"><b>20'</b><span data-i="mk0.s3">Закрепление и игра</span></div><div class="opt"><b>5'</b><span data-i="mk0.s4">Домашнее задание</span></div>
+        </a></div>
+      </article>
+      <article class="card" style="--i:1">
+        <div class="info">
+          <div class="top"><span>02 / 05</span><span class="badge wip" data-i="b.wip">В работе</span></div>
           <div><h3 data-i="w1h">Платформа подготовки к ОРТ</h3><p class="desc" data-i="w1">Сайт на кыргызском и русском: тренировка по темам с разбором, тетрадь ошибок с интервальным повторением, карта навыков и пробный тест с таймером.</p></div>
           <div class="chips"><span>Next.js</span><span>TypeScript</span><span>Drizzle</span><span>Vercel</span></div>
         </div>
@@ -466,9 +482,9 @@ footer .row a:hover{color:var(--acc)}
           <div class="opt"><b>А</b>13</div><div class="opt ok"><b>Б</b>23</div><div class="opt"><b>В</b>41</div><div class="opt"><b>Г</b>7</div>
         </div></div>
       </article>
-      <article class="card" style="--i:1">
+      <article class="card" style="--i:2">
         <div class="info">
-          <div class="top"><span>02 / 04</span><span class="badge wip" data-i="b.wip">В работе</span></div>
+          <div class="top"><span>03 / 05</span><span class="badge wip" data-i="b.wip">В работе</span></div>
           <div><h3>Coop Battle Race</h3><p class="desc" data-i="w2">Мультиплеерная кооперативная 2D-гонка с боевой системой и тюнингом машин. Игроки подключаются по сети и едут вместе в реальном времени.</p></div>
           <div class="chips"><span>Node.js</span><span>Express</span><span>Socket.io</span><span>Canvas</span></div>
         </div>
@@ -478,9 +494,9 @@ footer .row a:hover{color:var(--acc)}
           <div class="hud"><span>P1 <b>●</b> P2 ●</span><span>LAP <b>2</b>/3</span></div>
         </div></div>
       </article>
-      <article class="card" style="--i:2">
+      <article class="card" style="--i:3">
         <div class="info">
-          <div class="top"><span>03 / 04</span><span class="badge done" data-i="b.done">Решаю</span></div>
+          <div class="top"><span>04 / 05</span><span class="badge done" data-i="b.done">Решаю</span></div>
           <div><h3 data-i="w3h">Олимпиадные задачи</h3><p class="desc" data-i="w3">Разбираю и решаю алгоритмические задачи на Python: циклы, математика, оптимизация. Каждая задача — тренировка мышления.</p></div>
           <div class="chips"><span>Python</span><span data-i="ch.algo">Алгоритмы</span></div>
         </div>
@@ -495,9 +511,9 @@ footer .row a:hover{color:var(--acc)}
 print(solve(int(input())))
 <span class="c"># ✓ accepted</span></div></div>
       </article>
-      <article class="card" style="--i:3">
+      <article class="card" style="--i:4">
         <div class="info">
-          <div class="top"><span>04 / 04</span><span class="badge done" data-i="b.ready">Готово</span></div>
+          <div class="top"><span>05 / 05</span><span class="badge done" data-i="b.ready">Готово</span></div>
           <div><h3 data-i="w4h">Это портфолио</h3><p class="desc" data-i="w4">Портрет собирается из 3D-частиц, WebGL-шейдеры, плавный скролл, живой терминал и три языка. Собрано вместе с командой ИИ-агентов.</p></div>
           <div class="chips"><span>Three.js</span><span>WebGL</span><span>GSAP</span><span>Lenis</span><span>Claude AI</span></div>
         </div>
@@ -582,7 +598,9 @@ window.PORTRAIT = 'data:image/webp;base64,UklGRkLwAQBXRUJQVlA4WAoAAAAQAAAAgwMAgw
       j5h: 'Claude жана агенттер', j5: 'ЖИ менен бирге долбоор түзүүнү үйрөнүп жатам — тезирээк, батылыраак, кеңирээк.',
       j6h: 'Андан ары →', j6: 'Кийинки бөлүм дал азыр жазылып жатат. Бул жерде жаңы жеңиштер пайда болот.',
       'wk.label': 'Иштер', 'wk.h1': 'Тандалган', 'wk.h2': '<em>долбоорлор</em>',
-      'b.wip': 'Иштелип жатат', 'b.done': 'Чечип жатам', 'b.ready': 'Даяр',
+      'b.wip': 'Иштелип жатат', 'b.done': 'Чечип жатам', 'b.ready': 'Даяр', 'b.live': 'Иштеп жатат',
+      w0: '1–11-класстардын мугалимдери үчүн кыргыз жана орус тилиндеги жардамчы сайт: КР программасы боюнча Word’го жүктөлүүчү сабак пландары, жылдык КТП, текшерүү иштеринин банкы, браузерде Python менен виртуалдык лабораториялар жана сабак үчүн оюндар.', 'ch.py': 'Браузердеги Python',
+      'mk0.n': 'Математика · 5-класс', 'mk0.q': 'Сабактын планы: Бөлчөктөр', 'mk0.s1': 'Уюштуруу учуру', 'mk0.s2': 'Жаңы тема', 'mk0.s3': 'Бекемдөө жана оюн', 'mk0.s4': 'Үй тапшырмасы',
       w1h: 'ЖРТга даярдануу платформасы', w1: 'Кыргыз жана орус тилиндеги сайт: темалар боюнча машыгуу жана талдоо, интервалдык кайталоо менен каталар дептери, көндүмдөр картасы жана таймер менен сыноо тести.',
       'mk.n': '№ 17 / 30', 'mk.q': 'Туюнтманын маанисин тапкыла: 2⁵ − 3²',
       w2: 'Согуш системасы жана машина тюнинги бар көп оюнчулуу кооперативдик 2D-жарыш. Оюнчулар тармак аркылуу туташып, реалдуу убакытта бирге айдашат.',
@@ -628,7 +646,9 @@ window.PORTRAIT = 'data:image/webp;base64,UklGRkLwAQBXRUJQVlA4WAoAAAAQAAAAgwMAgw
       j5h: 'Claude & agents', j5: 'Learning to build projects with AI — faster, bolder, bigger.',
       j6h: 'What’s next →', j6: 'The next chapter is being written right now. New wins will appear here.',
       'wk.label': 'Work', 'wk.h1': 'Selected', 'wk.h2': '<em>projects</em>',
-      'b.wip': 'In progress', 'b.done': 'Ongoing', 'b.ready': 'Done',
+      'b.wip': 'In progress', 'b.done': 'Ongoing', 'b.ready': 'Done', 'b.live': 'Live',
+      w0: 'A Kyrgyz/Russian helper site for grade 1–11 teachers: lesson plans aligned with the national curriculum and exportable to Word, yearly course plans, a test bank, virtual labs with in-browser Python and classroom games.', 'ch.py': 'In-browser Python',
+      'mk0.n': 'Math · Grade 5', 'mk0.q': 'Lesson plan: Fractions', 'mk0.s1': 'Warm-up', 'mk0.s2': 'New topic', 'mk0.s3': 'Practice & game', 'mk0.s4': 'Homework',
       w1h: 'ORT exam-prep platform', w1: 'A Kyrgyz/Russian site for the national university entrance test: topic practice with explanations, a mistakes notebook with spaced repetition, a skill map and a timed mock exam.',
       'mk.n': 'Q 17 / 30', 'mk.q': 'Find the value of: 2⁵ − 3²',
       w2: 'A multiplayer co-op 2D racing game with a combat system and car tuning. Players connect over the network and race together in real time.',
@@ -648,7 +668,7 @@ window.PORTRAIT = 'data:image/webp;base64,UklGRkLwAQBXRUJQVlA4WAoAAAAQAAAAgwMAgw
       tip: 'Введи <span class="c">help</span>, чтобы управлять терминалом.',
       help: [['whoami', 'кто я'], ['skills', 'мой стек'], ['projects', 'мои проекты'], ['agents', 'команда ИИ-агентов'], ['contact', 'как связаться'], ['lang ru|ky|en', 'сменить язык'], ['clear', 'очистить экран']],
       skills: 'Python ▮▮▮▮▮▮▯▯▯▯\nC++ ▮▮▮▮▯▯▯▯▯▯\nHTML/CSS ▮▮▮▮▮▮▯▯▯▯\nJavaScript ▮▮▮▮▯▯▯▯▯▯\nNode.js ▮▮▮▯▯▯▯▯▯▯\nClaude AI ▮▮▮▮▮▮▮▯▯▯',
-      projects: '01 Платформа подготовки к ОРТ — Next.js\n02 Coop Battle Race — Node.js + Socket.io\n03 Олимпиадные задачи — Python\n04 Это портфолио — WebGL + GSAP',
+      projects: '01 Устат — помощник учителя, ustat.com.kg\n02 Платформа подготовки к ОРТ — Next.js\n03 Coop Battle Race — Node.js + Socket.io\n04 Олимпиадные задачи — Python\n05 Это портфолио — WebGL + GSAP',
       hire: 'Отличное решение. Пиши мне в Telegram:', nf: 'команда не найдена', nf2: 'введи help', langok: 'Меняю язык…'
     },
     ky: {
@@ -657,7 +677,7 @@ window.PORTRAIT = 'data:image/webp;base64,UklGRkLwAQBXRUJQVlA4WAoAAAAQAAAAgwMAgw
       tip: 'Терминалды башкаруу үчүн <span class="c">help</span> деп жаз.',
       help: [['whoami', 'мен киммин'], ['skills', 'менин стегим'], ['projects', 'менин долбоорлорум'], ['agents', 'ЖИ-агенттер командасы'], ['contact', 'байланыш'], ['lang ru|ky|en', 'тилди алмаштыруу'], ['clear', 'экранды тазалоо']],
       skills: 'Python ▮▮▮▮▮▮▯▯▯▯\nC++ ▮▮▮▮▯▯▯▯▯▯\nHTML/CSS ▮▮▮▮▮▮▯▯▯▯\nJavaScript ▮▮▮▮▯▯▯▯▯▯\nNode.js ▮▮▮▯▯▯▯▯▯▯\nClaude AI ▮▮▮▮▮▮▮▯▯▯',
-      projects: '01 ЖРТга даярдануу платформасы — Next.js\n02 Coop Battle Race — Node.js + Socket.io\n03 Олимпиада маселелери — Python\n04 Бул портфолио — WebGL + GSAP',
+      projects: '01 Устат — мугалимдин жардамчысы, ustat.com.kg\n02 ЖРТга даярдануу платформасы — Next.js\n03 Coop Battle Race — Node.js + Socket.io\n04 Олимпиада маселелери — Python\n05 Бул портфолио — WebGL + GSAP',
       hire: 'Сонун чечим. Telegram’га жаз:', nf: 'буйрук табылган жок', nf2: 'help деп жаз', langok: 'Тилди алмаштырып жатам…'
     },
     en: {
@@ -666,7 +686,7 @@ window.PORTRAIT = 'data:image/webp;base64,UklGRkLwAQBXRUJQVlA4WAoAAAAQAAAAgwMAgw
       tip: 'Type <span class="c">help</span> to drive this terminal.',
       help: [['whoami', 'who I am'], ['skills', 'my stack'], ['projects', 'my projects'], ['agents', 'my AI-agent team'], ['contact', 'how to reach me'], ['lang ru|ky|en', 'switch language'], ['clear', 'clear the screen']],
       skills: 'Python ▮▮▮▮▮▮▯▯▯▯\nC++ ▮▮▮▮▯▯▯▯▯▯\nHTML/CSS ▮▮▮▮▮▮▯▯▯▯\nJavaScript ▮▮▮▮▯▯▯▯▯▯\nNode.js ▮▮▮▯▯▯▯▯▯▯\nClaude AI ▮▮▮▮▮▮▮▯▯▯',
-      projects: '01 ORT exam-prep platform — Next.js\n02 Coop Battle Race — Node.js + Socket.io\n03 Olympiad problems — Python\n04 This portfolio — WebGL + GSAP',
+      projects: '01 Ustat — teacher’s helper, ustat.com.kg\n02 ORT exam-prep platform — Next.js\n03 Coop Battle Race — Node.js + Socket.io\n04 Olympiad problems — Python\n05 This portfolio — WebGL + GSAP',
       hire: 'Great decision. Message me on Telegram:', nf: 'command not found', nf2: 'type help', langok: 'Switching language…'
     }
   };
